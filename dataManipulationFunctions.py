@@ -10,6 +10,7 @@ def createMatrix(data):
 def buildDict(matrixOfData, colNames):
     aDict = {}
     zippedMatrix = transformMatrix(matrixOfData) #returns a list of rows
+    zippedMatrix.pop(0)
     zippedTable = attachColNamesToColData(zippedMatrix, colNames) #returns a list of cols
     for colData, colName in zippedTable:
         aDict[colName] = colData
