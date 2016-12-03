@@ -9,7 +9,7 @@ def createMatrix(data):
 
 def buildDict(matrixOfData, colNames):
     aDict = {}
-    zippedMatrix = transformMatrix(matrixOfData) #returns a list of rows
+    zippedMatrix = transposeMatrix(matrixOfData) #returns a list of rows
     zippedMatrix.pop(0)
     zippedTable = attachColNamesToColData(zippedMatrix, colNames) #returns a list of cols
     for colData, colName in zippedTable:
@@ -19,8 +19,8 @@ def buildDict(matrixOfData, colNames):
 def attachColNamesToColData(zippedMatrix, colNames):
     return zip(zippedMatrix, colNames)
 
-def transformMatrix(matrix):
-    return zip(*matrixOfData)
+def transposeMatrix(matrix):
+    return list(zip(*matrixOfData)) #list is necessary for version compatibility issue from 2-3 with this use of zip taking *args
 
 indexOfColNames = 0 #replace this number so it works for your dataset
 matrixOfData = createMatrix(data)
